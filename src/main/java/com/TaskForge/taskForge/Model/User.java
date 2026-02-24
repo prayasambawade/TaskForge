@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Set;
 
-@Document(collation = "users")
+@Document(collection = "users")
 
 @Getter
 @Setter
