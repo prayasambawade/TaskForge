@@ -1,5 +1,6 @@
 package com.TaskForge.taskForge.DTO;
 
+import com.TaskForge.taskForge.Model.Priority;
 import com.TaskForge.taskForge.Model.TaskStatus;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 
 public class CreateTaskRequest {
 
-    @NotBlank(message = "title is requied")
+    @NotBlank(message = "Title is requied")
     private String title;
 
     private String description;
@@ -22,4 +23,6 @@ public class CreateTaskRequest {
     private TaskStatus status;
 
     private LocalDateTime dueDate;
+
+    private Priority priority;
 }
