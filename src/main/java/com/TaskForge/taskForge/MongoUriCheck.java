@@ -7,11 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MongoUriCheck implements CommandLineRunner {
 
-    @Value("${spring.data.mongodb.uri:NOT_FOUND}")
+    @Value("${spring.mongodb.uri:NOT_FOUND}")
     private String mongoUri;
+
+    @Value("${spring.mongodb.database:taskforge}")
+    private String dbName;
 
     @Override
     public void run(String... args) {
-        System.out.println("✅ spring.data.mongodb.uri = " + mongoUri);
+        System.out.println("✅ spring.mongodb.uri = " + mongoUri);
+        System.out.println("✅ spring.mongodb.database = " + dbName);
     }
 }
