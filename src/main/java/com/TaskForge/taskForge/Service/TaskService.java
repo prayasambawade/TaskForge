@@ -114,9 +114,19 @@ public class TaskService {
     }
 
     private String getCurrentUserId() {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        var authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication == null || !authentication.isAuthenticated()
+                || "anonymousUser".equals(authentication.getName())) {
+            throw new RuntimeException("Unauthenticated user");
+        }
+
+        String email = authentication.getName();
+        System.out.println("Authenticated email: " + email);
+
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new RuntimeException("User not found with email: " + email));
+
         return user.getId();
     }
 }
