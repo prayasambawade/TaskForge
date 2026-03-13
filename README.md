@@ -13,3 +13,12 @@ Full Stack Task Management Application
 - Create Tasks
 - JWT Login
 - MongoDB Storage
+
+## How to Run
+
+### Backend
+mvn spring-boot:run
+
+### Frontend
+npm install
+npm run dev
